@@ -1,8 +1,12 @@
+/* ===============================================
+   Theme Switcher & Variables
+   =============================================== */
+
 html,
 body {
     background: var(--color-secondary);
     /* color: var(--body-color); */
-    transition: color .6s, background-color .6s;
+    transition: background-color 0.4s ease, color 0.4s ease;
 }
 
 h2,h3,h4,h5,h6 {
@@ -15,8 +19,9 @@ h2,h3,h4,h5,h6 {
     -moz-osx-font-smoothing: grayscale;
 }
 
-a {
+ a {
     color: var(--link-color);
+    transition: color 0.3s ease, background-color 0.3s ease, border-color 0.3s ease;
 }
 
 button {
@@ -25,6 +30,7 @@ button {
     border: 1px solid var(--border-color);
     color: var(--body-color);
     padding: 10px;
+    transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
 }
 
 button:focus {
@@ -39,6 +45,7 @@ button:hover {
     background-color: var(--bg-content-color);
     border: 1px solid var(--border-color);
     border-radius: var(--radius);
+    transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
 }
 
 .card .card-title {
@@ -66,10 +73,12 @@ a.text-dark:hover, a.text-dark:focus {
 
 .footer{
     background: var(--color-secondary);
+    transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
 }
 
 .navbar{
     background: var(--color-secondary);
+    transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
 }
 
 .theme-light {
@@ -83,8 +92,9 @@ a.text-dark:hover, a.text-dark:focus {
   --title-color: #111;
   --link-color: #9eabe7;
   --border-color: rgba(0, 0, 0, .1);
-  --radius: 5px;
+  --radius: 8px;
 }
+
 .theme-dark {
   --color-primary: #17ed90;
   --color-secondary: #2a2c2d;
@@ -96,6 +106,7 @@ a.text-dark:hover, a.text-dark:focus {
   --body-color: white;
   --title-color: #fff;
   --link-color: #f3c487;
+  --radius: 8px;
 }
 .themecontainer {
   display: flex;
@@ -124,8 +135,8 @@ a.text-dark:hover, a.text-dark:focus {
 .switch {
   position: relative;
   display: inline-block;
-  width: 60px;
-  height: 25px;
+  width: 50px;
+  height: 20px;
 }
 
 /* Hide default HTML checkbox */
@@ -151,10 +162,10 @@ a.text-dark:hover, a.text-dark:focus {
 .slider:before {
   position: absolute;
   content: "";
-  height: 35px;
-  width: 35px;
+  height: 28px;
+  width: 28px;
   left: 0px;
-  bottom: 4px;
+  bottom: 3px;
   top: 0;
   bottom: 0;
   margin: auto 0;
@@ -167,17 +178,17 @@ a.text-dark:hover, a.text-dark:focus {
 }
 
 input:checked + .slider {
-  background-color: #2196f3;
+  background-color: #03A87C;
 }
 
 input:focus + .slider {
-  box-shadow: 0 0 1px #2196f3;
+  box-shadow: 0 0 1px #03A87C;
 }
 
 input:checked + .slider:before {
-  -webkit-transform: translateX(24px);
-  -ms-transform: translateX(24px);
-  transform: translateX(24px);
+  -webkit-transform: translateX(20px);
+  -ms-transform: translateX(20px);
+  transform: translateX(20px);
   background: white url('https://i.ibb.co/7JfqXxB/sunny.png');
   background-repeat: no-repeat;
   background-position: center;
@@ -190,4 +201,168 @@ input:checked + .slider:before {
 
 .slider.round:before {
   border-radius: 50%;
+}
+
+/* ------------------------------------------------------------------
+   Featured sidebar list (light & dark modes)
+   ------------------------------------------------------------------ */
+
+.list-featured {
+  background-color: var(--bg-content-color);
+  border-radius: var(--radius);
+  /* border: 1px solid var(--border-color); */
+  padding: 1rem 1.25rem;
+  transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+}
+
+.list-featured li {
+  color: var(--body-color);
+  transition: color 0.3s ease;
+}
+
+.list-featured li:before {
+  color: var(--title-color);
+  opacity: 0.35;
+  transition: color 0.3s ease, opacity 0.3s ease;
+}
+
+.list-featured a.text-dark {
+  color: var(--body-color) !important;
+  transition: color 0.3s ease;
+}
+
+.list-featured a.text-dark:hover,
+.list-featured a.text-dark:focus {
+  color: var(--link-color) !important;
+}
+
+.list-featured .text-muted {
+  color: var(--body-color);
+  opacity: 0.7;
+  transition: color 0.3s ease, opacity 0.3s ease;
+}
+
+/* --- Search Modal Enhancements --- */
+
+/* 1. Make the modal scrollable and set height */
+#resultsmodal .modal-dialog {
+    max-height: 90vh; /* Keeps it from disappearing off screen */
+    display: flex;
+}
+
+#resultsmodal .modal-content {
+    max-height: 85vh;
+    overflow: hidden; /* Contains the scroll */
+    display: flex;
+    flex-direction: column;
+    background-color: var(--bg-color); /* Matches your light/dark theme */
+    border: 1px solid var(--border-color);
+}
+
+#resultsmodal .modal-body {
+    overflow-y: auto; /* Enables the scrollbar */
+    padding: 24px !important;
+    color: var(--body-color);
+}
+
+/* 2. Green Gradient Title (Suitable for both modes) */
+#resultsmodal .modal-title {
+    background: linear-gradient(45deg, #2ecc71, #1abc9c);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-weight: 700;
+}
+
+/* 3. Fix Close Buttons (Neutral Theme Color) */
+#resultsmodal #btnx.close {
+    color: var(--body-color);
+    text-shadow: none;
+    opacity: 0.7;
+}
+
+#resultsmodal #btnx.btn-danger {
+    background-color: var(--link-color);
+    border: none;
+    padding: 8px 16px;
+    border-radius: 8px;
+}
+
+/* 4. Search Result Item Spacing */
+.lunrsearchresult {
+    padding-bottom: 1.5rem;
+    border-bottom: 1px solid var(--border-color);
+    margin-bottom: 1rem;
+    list-style: none;
+}
+
+.lunrsearchresult a {
+    text-decoration: none !important;
+}
+
+.lunrsearchresult .title {
+    color: var(--link-color);
+    font-weight: bold;
+    font-size: 1.1rem;
+}
+
+/* Theme-aware modal styling */
+.theme-modal {
+    background-color: rgba(0, 0, 0, 0);
+}
+
+.theme-modal .modal-content {
+    border-radius: 12px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+    border: none;
+}
+
+.theme-light .theme-modal .modal-content {
+    background-color: #fff;
+    color: #444;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.15);
+}
+
+.theme-light .theme-modal .modal-header {
+    background-color: #fbfbfe;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+    border-radius: 12px 12px 0 0;
+}
+
+.theme-light .theme-modal .modal-body {
+    background-color: #fff;
+    color: #444;
+}
+
+.theme-light .theme-modal .modal-footer {
+    background-color: #fbfbfe;
+    border-top: 1px solid rgba(0, 0, 0, 0.1);
+    border-radius: 0 0 12px 12px;
+}
+
+/* Dark mode modal styling */
+.theme-dark .theme-modal .modal-content {
+    background-color: #2a2c2d;
+    color: white;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.5);
+}
+
+.theme-dark .theme-modal .modal-header {
+    background-color: #1f2123;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 12px 12px 0 0;
+}
+
+.theme-dark .theme-modal .modal-body {
+    background-color: #2a2c2d;
+    color: white;
+}
+
+.theme-dark .theme-modal .modal-footer {
+    background-color: #1f2123;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 0 0 12px 12px;
+}
+
+.theme-dark .theme-modal .close {
+    color: #fff !important;
 }

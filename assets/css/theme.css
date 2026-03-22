@@ -1,6 +1,9 @@
 /*!
  * Genesis Theme
+ * Custom Component Styling
  */
+
+
 
 body {
 	overflow-x:hidden;
@@ -268,6 +271,34 @@ a.text-dark:hover {
 	border-radius:30px;
 	height:35px;
 	border:1px solid #eee;
+	background-color: var(--bg-content-color);
+	transition: all 0.3s ease;
+}
+
+.bd-search .form-control:focus {
+	background-color: var(--bg-content-color);
+	color: var(--body-color);
+	border-color: #999;
+	box-shadow: 0 0 0 3px rgba(153, 153, 153, 0.1);
+	outline: none;
+}
+
+.bd-search .form-control::placeholder {
+	color: rgba(153, 153, 153, 0.7);
+}
+
+/* Dark mode search styling */
+.theme-dark .bd-search .form-control {
+	background-color: var(--bg-content-color);
+	color: var(--body-color);
+	border-color: rgba(255, 255, 255, 0.2);
+}
+
+.theme-dark .bd-search .form-control:focus {
+	background-color: var(--bg-content-color);
+	color: var(--body-color);
+	border-color: var(--color-primary);
+	box-shadow: 0 0 0 2px rgba(23, 237, 144, 0.2);
 }
 .mb-2rem {
 	margin-bottom:2rem;
@@ -707,6 +738,134 @@ article h1,article h2,article h3,article h4,article h5,article h6,article .h1,ar
 }
 .alertbar img {
 	border-radius:2px;
+}
+.theme-dark .alertbar {
+	background: linear-gradient(135deg, rgba(42, 44, 45, 0.95) 0%, rgba(58, 62, 65, 0.95) 100%);
+	box-shadow:0 -3px 10px 0 rgba(0,0,0,.4);
+}
+.theme-dark .alertbar a {
+	color: #fff !important;
+}
+.theme-dark .alertbar .text-dark {
+	color: #fff !important;
+}
+.social-share-icons {
+	display: flex;
+	gap: 1rem;
+	flex-wrap: wrap;
+	justify-content: center;
+}
+.social-share-icons .share-label {
+	font-weight: 600;
+	color: #444;
+	margin-right: 0.5rem;
+}
+.social-share-icons .social-icon {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	width: 36px;
+	height: 36px;
+	border-radius: 50%;
+	background-color: #f0f0f0;
+	color: #444;
+	transition: all 0.3s ease;
+	text-decoration: none;
+	border: 1px solid #e0e0e0;
+}
+.social-share-icons .social-icon:hover {
+	background-color: #03a87c;
+	color: #fff;
+	border-color: #03a87c;
+	transform: scale(1.1);
+}
+.social-share-icons .social-icon svg {
+	width: 18px;
+	height: 18px;
+}
+.theme-dark .social-share-icons .share-label {
+	color: #fff;
+}
+.theme-dark .social-share-icons .social-icon {
+	background-color: rgba(255, 255, 255, 0.1);
+	color: #fff;
+	border-color: rgba(255, 255, 255, 0.2);
+}
+.theme-dark .social-share-icons .social-icon:hover {
+	background-color: #03a87c;
+	color: #fff;
+	border-color: #03a87c;
+}
+
+/* ---- Sidebar Social Share Icons ---- */
+.share-sidebar {
+	display: flex !important; 
+	flex-direction: column;
+	gap: 0.75rem;
+	align-items: center;
+	margin-top: 1rem;
+}
+
+.sidebar-social-icon {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	width: 40px;
+	height: 40px;
+	border-radius: 50%;
+	background-color: #f0f0f0;
+	color: #444;
+	transition: all 0.3s ease;
+	text-decoration: none;
+	border: 1px solid #e0e0e0;
+}
+
+.sidebar-social-icon:hover {
+	background-color: #03a87c;
+	color: #fff;
+	border-color: #03a87c;
+	transform: scale(1.15);
+}
+
+.sidebar-social-icon svg {
+	width: 20px;
+	height: 20px;
+	fill: currentColor;
+}
+
+/* Dark mode styling for sidebar social icons */
+.theme-dark .sidebar-social-icon {
+	background-color: rgba(255, 255, 255, 0.1);
+	color: #fff;
+	border-color: rgba(255, 255, 255, 0.2);
+}
+
+.theme-dark .sidebar-social-icon:hover {
+	background-color: #03a87c;
+	color: #fff;
+	border-color: #03a87c;
+}
+
+/* Mobile view - Social icons in row */
+@media (max-width: 768px) {
+	.share-sidebar {
+		flex-direction: row !important;
+		gap: 0.5rem;
+		margin-top: 0.75rem;
+		display: flex !important;
+		justify-content: center;
+		align-items: center;
+	}
+
+	.sidebar-social-icon {
+		width: 36px;
+		height: 36px;
+	}
+
+	.sidebar-social-icon svg {
+		width: 18px;
+		height: 18px;
+	}
 }
 .spanborder {
 	border-bottom:1px solid #e8f3ec;
